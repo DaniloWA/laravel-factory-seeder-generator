@@ -60,7 +60,7 @@ To install the **Laravel Factory Seeder Generator**, follow these steps:
 2. **Publish Configuration (optional)**: If your package includes configuration files, you can publish them to your application's config directory:
 
    ```bash
-   php artisan vendor:publish --provider="Danilowa\FactorySeederGenerator\FactorySeederGeneratorServiceProvider"
+   php artisan vendor:publish --provider="Danilowa\LaravelFactorySeederGenerator\Providers\FactorySeederGeneratorServiceProvider"
    ```
 
 ## 🔧 How It Works
