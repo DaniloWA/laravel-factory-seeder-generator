@@ -4,6 +4,7 @@ namespace Danilowa\LaravelFactorySeederGenerator\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Config;
 
 class GenerateSeeder extends Command
 {
@@ -12,9 +13,10 @@ class GenerateSeeder extends Command
 
     public function handle()
     {
+        $customSeederCount = Config::get('factorySeederGenerator.custom_seeder_count', 10);
         $modelName = $this->argument('model');
         $modelClass = $this->getModelClass($modelName);
-        $count = $this->option('count');
+        $count = $this->option('count') ?? $customSeederCount;
 
         if (!$modelClass || !class_exists($modelClass)) {
             $this->error("Model class {$modelClass} does not exist.");
@@ -30,11 +32,18 @@ class GenerateSeeder extends Command
     protected function getModelClass($modelName)
     {
         $modelClass = "App\\Models\\{$modelName}";
-        if (class_exists($modelClass)) {
-            return $modelClass;
+
+        if (!class_exists($modelClass)) {
+            $this->error("Model class {$modelClass} does not exist.");
+            return null;
         }
 
-        return null;
+        if (!in_array('Illuminate\\Database\\Eloquent\\Factories\\HasFactory', class_uses($modelClass))) {
+            $this->error("Model {$modelClass} does not use the HasFactory trait.");
+            return null;
+        }
+
+        return $modelClass;
     }
 
     protected function generateSeeder($modelClass, $count)

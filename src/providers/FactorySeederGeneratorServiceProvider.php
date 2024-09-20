@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Danilowa\LaravelFactorySeederGenerator\Commands\GenerateSeeder;
 use Danilowa\LaravelFactorySeederGenerator\Commands\GenerateFactory;
 use Danilowa\LaravelFactorySeederGenerator\Commands\GenerateFactoryAndSeederCommand;
+use Danilowa\LaravelFactorySeederGenerator\Commands\GenerateFactoryAndSeederAllCommand;
 
 class FactorySeederGeneratorServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,7 @@ class FactorySeederGeneratorServiceProvider extends ServiceProvider
             GenerateFactory::class,
             GenerateSeeder::class,
             GenerateFactoryAndSeederCommand::class,
+            GenerateFactoryAndSeederAllCommand::class,
         ]);
     }
 

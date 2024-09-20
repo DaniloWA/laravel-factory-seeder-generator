@@ -14,10 +14,14 @@ class GenerateFactoryAndSeederCommand extends Command
         $model = $this->argument('model');
         $count = $this->option('count');
 
-        $this->call('make:a-factory', ['model' => $model]);
+        $factoryStatus = $this->call('make:a-factory', ['model' => $model]);
+
+        if ($factoryStatus === 1) {
+            $this->error("Failed to create the factory for {$model}. Seeder not generated.");
+            return 1;
+        }
 
         $this->call('make:a-seeder', ['model' => $model, '--count' => $count]);
-
-        $this->info("Factory and seeder created for {$model} with count of {$count} records");
+        $this->info("Factory and seeder created for {$model} with a count of {$count} records");
     }
 }
