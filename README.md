@@ -13,19 +13,19 @@
 
 ## 📚 Index
 
--   [Overview](#overview)
--   [Features](#features)
--   [Requirements](#requirements)
--   [Installation](#installation)
--   [How It Works](#how-it-works)
--   [Configuration](#configuration)
--   [Command Overview](#command-overview)
-    -   [Usage Examples](#usage-examples)
--   [Advantages](#advantages)
--   [Conclusion](#conclusion)
--   [Contributing](#contributing)
--   [License](#license)
--   [Contact](#contact)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [How It Works](#-how-it-works)
+- [Configuration](#-configuration)
+- [Command Overview](#-command-overview)
+  - [Usage Examples](#-usage-examples)
+- [Advantages](#-advantages)
+- [Conclusion](#-conclusion)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ## 🔍 Overview
 
@@ -33,19 +33,19 @@ The **Laravel Factory Seeder Generator** is an advanced tool designed to streaml
 
 ## ⭐ Features
 
--   **Automatic Generation**: Effortlessly create factories and seeders for all your models, eliminating repetitive tasks and allowing for faster development cycles.
--   **Intelligent Data Filling**: Automatically extracts all `$fillable` attributes from your models, ensuring that the correct fields are utilized for data generation.
--   **Smart Handling of Casts**: Utilizes defined casts in your model to produce realistic data with Laravel's Faker. If no casts are specified, it intelligently infers the most suitable cast for each `$fillable` field, optimizing data generation.
--   **Seamless Integration**: Integrates effortlessly with your existing Laravel project structure, requiring minimal configuration and setup.
--   **Customizable Options**: Provides flexible configuration settings to tailor the generator to your specific development requirements.
+- **Automatic Generation**: Effortlessly create factories and seeders for all your models, eliminating repetitive tasks and allowing for faster development cycles.
+- **Intelligent Data Filling**: Automatically extracts all `$fillable` attributes from your models, ensuring that the correct fields are utilized for data generation.
+- **Smart Handling of Casts**: Utilizes defined casts in your model to produce realistic data with Laravel's Faker. If no casts are specified, it intelligently infers the most suitable cast for each `$fillable` field, optimizing data generation.
+- **Seamless Integration**: Integrates effortlessly with your existing Laravel project structure, requiring minimal configuration and setup.
+- **Customizable Options**: Provides flexible configuration settings to tailor the generator to your specific development requirements.
 
 ## ✅ Requirements
 
 To use the **Laravel Factory Seeder Generator**, ensure that your environment meets the following requirements:
 
--   **Laravel**: This package requires Laravel 8.x or later.
--   **PHP**: Ensure that you are running PHP 8.1 or higher.
--   **Faker**: The package leverages the Faker library for data generation, which is included with Laravel.
+- **Laravel**: This package requires Laravel 8.x or later.
+- **PHP**: Ensure that you are running PHP 8.1 or higher.
+- **Faker**: The package leverages the Faker library for data generation, which is included with Laravel.
 
 ## 🚀 Installation
 
@@ -53,15 +53,15 @@ To install the **Laravel Factory Seeder Generator**, follow these steps:
 
 1. **Require the Package**: Use Composer to add the package to your Laravel project:
 
-    ```bash
-    composer require danilowa/laravel-factory-seeder-generator
-    ```
+   ```bash
+   composer require danilowa/laravel-factory-seeder-generator
+   ```
 
 2. **Publish Configuration (optional)**: If your package includes configuration files, you can publish them to your application's config directory:
 
-    ```bash
-    php artisan vendor:publish --provider="Danilowa\FactorySeederGenerator\FactorySeederGeneratorServiceProvider"
-    ```
+   ```bash
+   php artisan vendor:publish --provider="Danilowa\FactorySeederGenerator\FactorySeederGeneratorServiceProvider"
+   ```
 
 ## 🔧 How It Works
 
@@ -75,53 +75,53 @@ To install the **Laravel Factory Seeder Generator**, follow these steps:
 
 The configuration file allows you to customize the behavior of the generator. Here are the key settings you can modify:
 
--   **Custom Attributes Active**: Toggle this option to enable or disable custom attributes.
+- **Custom Attributes Active**: Toggle this option to enable or disable custom attributes.
 
-    ```php
-    'custom_attributes_active' => true,
-    ```
+  ```php
+  'custom_attributes_active' => true,
+  ```
 
--   **Default Attributes Priority**: When enabled, this setting takes precedence over the default Laravel casts.
+- **Default Attributes Priority**: When enabled, this setting takes precedence over the default Laravel casts.
 
-    ```php
-    'custom_attributes_priority' => false,
-    ```
+  ```php
+  'custom_attributes_priority' => false,
+  ```
 
--   **Custom Attributes**: Specify mappings for custom attributes.
+- **Custom Attributes**: Specify mappings for custom attributes.
 
-    ```php
-    'custom_attributes' => [
-        'price' => '$this->faker->randomFloat(2, 1, 1000)',
-        'username' => '$this->faker->userName',
-    ],
-    ```
+  ```php
+  'custom_attributes' => [
+      'price' => '$this->faker->randomFloat(2, 1, 1000)',
+      'username' => '$this->faker->userName',
+  ],
+  ```
 
--   **Include Relationships in Factories**: This option allows you to include related models in the generated factories.
+- **Include Relationships in Factories**: This option allows you to include related models in the generated factories.
 
-    ```php
-    'include_relationships' => true,
-    ```
+  ```php
+  'include_relationships' => true,
+  ```
 
--   **Custom Seeder Count**: Set the default number of records to create when generating seeders.
+- **Custom Seeder Count**: Set the default number of records to create when generating seeders.
 
-    ```php
-    'custom_seeder_count' => 10,
-    ```
+  ```php
+  'custom_seeder_count' => 10,
+  ```
 
--   **Enable Logging**: This option enables detailed logging for the generation process.
+- **Enable Logging**: This option enables detailed logging for the generation process.
 
-    ```php
-    'enable_logging' => false,
-    ```
+  ```php
+  'enable_logging' => false,
+  ```
 
 ## ⚡ Command Overview
 
 The package includes a variety of commands to facilitate the factory and seeder generation process:
 
--   **GenerateFactory**: Generates a factory for a specified model.
--   **GenerateSeeder**: Creates a seeder for a specified model.
--   **GenerateFactoryAndSeederCommand**: Combines functionalities of both commands.
--   **GenerateFactoryAndSeederAllCommand**: Automatically generates factories and seeders for all models in your application.
+- **GenerateFactory**: Generates a factory for a specified model.
+- **GenerateSeeder**: Creates a seeder for a specified model.
+- **GenerateFactoryAndSeederCommand**: Combines functionalities of both commands.
+- **GenerateFactoryAndSeederAllCommand**: Automatically generates factories and seeders for all models in your application.
 
 ### 📜 Usage Examples
 
@@ -146,9 +146,9 @@ php artisan make:a-seeder {ModelName} --count=15
 
 ## 🚀 Advantages
 
--   **Efficiency**: Reduces the time spent on manual factory and seeder creation.
--   **Consistency**: Ensures that generated data is valid and consistent.
--   **Flexibility**: Customizable settings to adapt the package to your unique development needs.
+- **Efficiency**: Reduces the time spent on manual factory and seeder creation.
+- **Consistency**: Ensures that generated data is valid and consistent.
+- **Flexibility**: Customizable settings to adapt the package to your unique development needs.
 
 ## ✅ Conclusion
 
@@ -172,8 +172,8 @@ This package is licensed under the MIT License.
 
 For any questions or feedback, please reach out to:
 
--   **Danilo Oliveira:** [daniloworkdev@gmail.com](mailto:daniloworkdev@gmail.com)
--   **Website:** [daniloo.dev](http://www.daniloo.dev)
+- **Danilo Oliveira:** [daniloworkdev@gmail.com](mailto:daniloworkdev@gmail.com)
+- **Website:** [daniloo.dev](http://www.daniloo.dev)
 
 ---
 

@@ -1,7 +1,7 @@
 {
     "name": "danilowa/laravel-factory-seeder-generator",
     "description": "A Laravel package to automatically generate factories and seeders based on models and their relationships.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
